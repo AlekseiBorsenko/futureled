@@ -9,4 +9,4 @@
 - Email Order Notification
 - On description add line break on ";" caracter.
 - add "No image" image if image url is empty;
-
+- a new line
