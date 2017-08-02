@@ -11,6 +11,7 @@
 simpleStore.plugins.google = (function() {
 
 	var storeProducts = verifyProducts = [];
+	var categories = {};
 
 	function getSpreadsheetData(s, verify, callback) {
 
@@ -22,6 +23,7 @@ simpleStore.plugins.google = (function() {
 		var mainsheetURL = hostname + "/feeds/list/" + s.spreadsheetID + "/od6/public/values?alt=" + format;
 		var settingsSheetName = "Settings";
 		var productsSheetName = "Products";
+		var categorySheetName = "Categories";
 		var sheetIDs = {};
 
 		function getSheetInfo (url, callback) {
@@ -43,9 +45,13 @@ simpleStore.plugins.google = (function() {
 						if(title == productsSheetName) {
 							sheetIDs.productsSheetID  = sheetID;
 						}
+						if(title == categorySheetName) {
+							sheetIDs.categorySheetID  = sheetID;
+						}
 					});
 					callback(sheetIDs.settingsSheetID);
 					loadProductData(sheetIDs.productsSheetID);
+					loadCategoryData(sheetIDs.categorySheetID);
 				});
 		}
 
@@ -132,6 +138,46 @@ simpleStore.plugins.google = (function() {
 					setTimeout(function(){ simpleStore.renderError(s, errorMsg); }, 1000);
 				});
 		}
+		function loadCategoryData (id) {
+
+			var productsSheetURL = hostname + "/feeds/list/" + s.spreadsheetID + "/" + id + "/public/values?alt=" + format;
+
+			// Get Main Sheet Products data
+			$.getJSON(productsSheetURL)
+				.done(function(data) {
+
+					var catData = data.feed.entry;
+
+					// Build categories
+					$(catData).each(function(i) {
+						var catName = this.gsx$cat.$t;
+						var subcatName = this.gsx$subcat.$t;
+						var subsubcatName = this.gsx$subsubcat.$t;
+						
+
+						if(catName in categories){
+							if(subcatName in categories[catName]){
+								categories[catName][subcatName].push(subsubcatName);
+							}else{
+								categories[catName][subcatName] = []
+							}
+						}else{
+							categories[catName] = []
+						}
+					});
+					console.log("cats loaded!")
+					console.log(categories);
+					
+				})
+				.fail(function(data){
+					if (verify) {
+						var errorMsg = 'There was an error validating your cart.';
+					} else {
+						var errorMsg = 'Error loading spreadsheet data. Make sure the spreadsheet ID is correct.';
+					}
+					setTimeout(function(){ simpleStore.renderError(s, errorMsg); }, 1000);
+				});
+		}
 
 		// Get Sheet data
 		getSheetInfo(spreadsheetURL, loadSiteSettings);
@@ -151,6 +197,9 @@ simpleStore.plugins.google = (function() {
 	}
 
 	return {
+		getCategories: function(){
+			return categories;
+		},
 		init: function(callback) {
 			var s = simpleStore.settings;
 
