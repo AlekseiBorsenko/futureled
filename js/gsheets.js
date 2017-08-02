@@ -113,7 +113,7 @@ simpleStore.plugins.google = (function() {
 						};
 						// Get product values
 						var product = {
-							category: this.gsx$category,
+							category: this.gsx$category.$t,
 							name : this.gsx$name.$t,
 							price : this.gsx$price.$t,
 							description : this.gsx$description.$t,
@@ -167,6 +167,36 @@ simpleStore.plugins.google = (function() {
 					});
 					console.log("cats loaded!")
 					console.log(categories);
+					var cats = categories;
+
+					$('#main_menu').empty();
+					var catNames = Object.keys(cats);
+					catNames.forEach(function(catName){
+						var li = $('<li><span>'+catName+'</span><a href="#" class="expand"><span class="glyphicon glyphicon-chevron-right"></span></a><a href="#" class="collapse"><span class="glyphicon glyphicon-chevron-down"></span></a></li>');
+						var subcats = cats[catName];
+						var subcatNames = Object.keys(subcats);
+						if(subcatNames.length > 0){
+							var ul = $('<ul />');
+							subcatNames.forEach(function(subcatName){
+								ul.append('<li>'+subcatName+'</li>');
+							});
+							li.append(ul)
+						}
+						$('#main_menu').append(li);
+						
+					})
+					$('#main_menu > li > span').on('click',function(){
+							$(this).parent().toggleClass('opened');
+							simpleStore.filterProductsCat($(this).text());
+					});
+					$('#main_menu > li > ul > li').on('click',function(){
+						simpleStore.filterProductsCat($(this).text());
+					})
+					$('#menu_but span').on('click',function(){
+						
+						$('#main_menu').toggleClass('opened')
+						
+					});
 					
 				})
 				.fail(function(data){

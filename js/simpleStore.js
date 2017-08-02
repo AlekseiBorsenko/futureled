@@ -327,7 +327,19 @@ var simpleStore = {
 			}
 		}
     },
-
+    filterProducts: function(search ,s){
+        console.log("Filtering by: "+search);
+        var filtered = simpleStore.products.filter(function(prod){
+            return prod.name.indexOf(search) !== -1;
+        })
+        simpleStore.renderProducts(filtered, this.settings);
+    },
+    filterProductsCat: function(cat ,s){
+        var filtered = simpleStore.products.filter(function(prod){
+            return prod.category.indexOf(cat) !== -1;
+        })
+        simpleStore.renderProducts(filtered, this.settings);
+    },
     setProducts: function (products, s) {
         if (products.length > 0) {
             products.forEach(function (product, index) {

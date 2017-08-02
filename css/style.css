@@ -6,7 +6,7 @@
     margin:20px;
 }
 .menu-button{
-    position:fixed;
+    position:absolute;
     left:0;
     top:0;
     z-index:99;
@@ -25,12 +25,11 @@
 .main-menu{
     background: #282828;
     padding-top:60px;
-    position: fixed;
+    position: absolute;
     z-index:98;
     width:200px;
     top:0;
     left:-200px;
-    height:100vh;
     transition: left 0.2s ease-in;
     color:white;
 }
@@ -43,4 +42,11 @@
 }
 .main-menu.opened{
     left:0;
+}
+
+#main_menu > li > ul{
+    display: none
+}
+#main_menu > li.opened > ul{
+    display:block;
 }
