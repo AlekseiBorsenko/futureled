@@ -50,3 +50,7 @@
 #main_menu > li.opened > ul{
     display:block;
 }
+
+.simpleCart_items {
+    margin-bottom: 204px; 
+}

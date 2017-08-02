@@ -23,6 +23,7 @@ var simpleStore = {
         textColor: null,
         container: $('.simpleStore_container'),
         cartContainer: $('.simpleStore_cart_container'),
+        btransChkoutContainer: $('#transfer-checkout'),
         rowClass: 'simpleStore_row_',
         columnWidthClasses: {
             1: "",
@@ -281,6 +282,7 @@ var simpleStore = {
 
 	checkout : function (s, checkoutData) {
 		if (!$.isEmptyObject(checkoutData)) {
+
         	simpleCart.checkout();
 			s.cartContainer.fadeOut(s.fadeSpeed, function () {
 				s.container.html('<i class="fa fa-spin fa-circle-o-notch loader"></i>');
@@ -329,8 +331,14 @@ var simpleStore = {
     },
     filterProducts: function(search ,s){
         console.log("Filtering by: "+search);
+        var s = search.toLowerCase();
         var filtered = simpleStore.products.filter(function(prod){
-            return prod.name.indexOf(search) !== -1;
+            var n = prod.name.toLowerCase(),
+                d = prod.description.toLowerCase(),
+                c = prod.category.toLowerCase();
+                
+
+            return (n.indexOf(s) !== -1 || d.indexOf(s) !== -1 || c.indexOf(s) !== -1);
         })
         simpleStore.renderProducts(filtered, this.settings);
     },

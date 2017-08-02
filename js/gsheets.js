@@ -193,7 +193,7 @@ simpleStore.plugins.google = (function() {
 						simpleStore.filterProductsCat($(this).text());
 					})
 					$('#menu_but span').on('click',function(){
-						
+						$(this).parent().toggleClass('opened')
 						$('#main_menu').toggleClass('opened')
 						
 					});
