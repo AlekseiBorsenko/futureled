@@ -8,7 +8,7 @@ v0.1 27/7/2017
 - add "No image" image if image url is empty; 0.5h
 - Search by text. 4h
 - categories filter. Show subcategory; (gsheet category tab) 4h 
-- check cart validation ???
+- check cart validation ??? DONE
 - Paypal Payment NEED EMAIL ???
 - Bank Transfer payment. A info with a IBAN and a Done button(clears cart and goes to home) NEED IBAN 2h
 - Email Order Notification 3h

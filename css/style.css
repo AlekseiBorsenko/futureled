@@ -5,3 +5,42 @@
 .cart-but{
     margin:20px;
 }
+.menu-button{
+    position:fixed;
+    left:0;
+    top:0;
+    z-index:99;
+}
+.menu-button span{
+    font-size:40px;
+    padding:10px;
+    cursor: pointer;
+}
+.menu-button span:hover{
+    color:#333333;
+}
+.menu-button.opened span{
+    color:white;
+}
+.main-menu{
+    background: #282828;
+    padding-top:60px;
+    position: fixed;
+    z-index:98;
+    width:200px;
+    top:0;
+    left:-200px;
+    height:100vh;
+    transition: left 0.2s ease-in;
+    color:white;
+}
+.main-menu li{
+    list-style-type: none;
+    margin-bottom: 1px;
+    background: #333333;
+    padding:6px;
+    cursor:pointer;
+}
+.main-menu.opened{
+    left:0;
+}

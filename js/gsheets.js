@@ -107,6 +107,7 @@ simpleStore.plugins.google = (function() {
 						};
 						// Get product values
 						var product = {
+							category: this.gsx$category,
 							name : this.gsx$name.$t,
 							price : this.gsx$price.$t,
 							description : this.gsx$description.$t,
