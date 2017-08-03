@@ -102,3 +102,22 @@ width:250px;
     border-color: #03A94D;
 
 }
+.searchbar input{
+    width: 50%;
+padding: 5px;
+margin: 4px;
+border-radius: 3px;
+border: 1px solid #e8e8e8;
+transition: width 0.1S;
+}
+.searchbar input:focus{
+    border-color: #03A94D;
+    width:95%;
+}
+.search-but{
+    color: #22B24C;
+    cursor:pointer;
+}
+.search-but:hover{
+    color: #03A94D;
+}
