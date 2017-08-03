@@ -54,3 +54,51 @@
 .simpleCart_items {
     margin-bottom: 204px; 
 }
+.footer div.footer-contacts{
+    width:250px;
+    float:right;
+}
+.footer{
+    border-top:1px solid #363636;
+    margin-top:20px;
+    padding-top:15px;
+}
+.footer div h3{
+    font-size:20px;
+    padding:0px 0px;
+}
+.footer div.footer-options ul li{
+    list-style-type: none;
+}
+.footer div.footer-options{
+width:250px;
+    float:left;
+}
+
+.footer div a.fa-facebook{
+    text-decoration: none;
+    color:darkblue;
+    font-size:30px;
+    display: inline-block;
+    padding: 4px 14px 4px 5px;
+    border-radius: 3px;
+    border:1px solid darkblue;
+}
+.transfer-checkout-container{
+    display:none;
+}
+
+.button.button-primary, button.button-primary, input.button-primary[type="submit"], input.button-primary[type="reset"], input.button-primary[type="button"] {
+
+    color: #FFF;
+    background-color: #22B24C;
+    border-color: #22B24C;
+
+}
+.button.button-primary:hover, button.button-primary:hover, input.button-primary[type="submit"]:hover, input.button-primary[type="reset"]:hover, input.button-primary[type="button"]:hover {
+
+    color: #FFF;
+    background-color: #03A94D;
+    border-color: #03A94D;
+
+}

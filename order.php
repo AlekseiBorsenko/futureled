@@ -1,8 +1,15 @@
 <?php
-$prodJSON = $_POST['prodJSON'];
-$products = json_decode($prodJSON);
-print_r($products);
-/*
+$name = $_POST["name"];
+$email = $_POST["email"];
+$phone = $_POST["phone"];
+$checkoutData = $_POST["checkoutData"];
+
+ob_start();
+include 'mailtpl.php';
+$myvar = ob_get_clean();
+
+//print_r($myvar);
+
 require 'phpmailer/PHPMailerAutoload.php';
 
 $mail = new PHPMailer;
@@ -12,25 +19,23 @@ $mail = new PHPMailer;
 $mail->isSMTP();                                      // Set mailer to use SMTP
 $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
-$mail->Username = 'email@gmail.com';                 // SMTP username
-$mail->Password = 'secret';                           // SMTP password
+$mail->Username = 'test@gmail.com';                 // SMTP username
+$mail->Password = 'XXXXXX';                           // SMTP password
 $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 $mail->Port = 587; 
 $mail->SMTPDebug = 2;                                   // TCP port to connect to
 
-$mail->setFrom('from@example.com', 'Mailer');
-$mail->addAddress('aleksei.borsenko.dev@gmail.com', 'Joe User');     // Add a recipient
+$mail->setFrom('encomendas@futureled.pt', 'Future LED');
+$mail->addAddress('aleksei.borsenko.dev@gmail.com', 'Recepcionista');     // Add a recipient
 
-$mail->addReplyTo('info@example.com', 'Information');
-$mail->addCC('cc@example.com');
-$mail->addBCC('bcc@example.com');
+$mail->addReplyTo('no-reply@futureled.pt', 'Information');
+$mail->addCC('geral@futureled.pt');
 
 
 $mail->isHTML(true);                                  // Set email format to HTML
 
-$mail->Subject = 'Here is the subject';
-$mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+$mail->Subject = 'Uma nova encomenda para '.$email;
+$mail->Body    = $myvar;
 
 if(!$mail->send()) {
     echo 'Message could not be sent.';

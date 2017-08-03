@@ -23,7 +23,7 @@ var simpleStore = {
         textColor: null,
         container: $('.simpleStore_container'),
         cartContainer: $('.simpleStore_cart_container'),
-        btransChkoutContainer: $('#transfer-checkout'),
+        btransChkoutContainer: $('.transfer-checkout-container'),
         rowClass: 'simpleStore_row_',
         columnWidthClasses: {
             1: "",
@@ -67,6 +67,9 @@ var simpleStore = {
             // Cart view
             '#cart': function () {
                 simpleStore.renderCart(s);
+            },
+            '#checkout' : function(){
+                simpleStore.renderCheckout(s);
             }
         };
 
@@ -210,6 +213,11 @@ var simpleStore = {
     renderCart: function (s) {
         s.container.fadeOut(s.fadeSpeed, function () {
             s.cartContainer.fadeIn(s.fadeSpeed);
+        });
+    },
+    renderCheckout: function(s){
+        s.cartContainer.fadeOut(s.fadeSpeed, function(){
+            s.btransChkoutContainer.fadeIn(s.fadeSpeed);
         });
     },
 
@@ -373,7 +381,22 @@ var simpleStore = {
             $tmpl = $(tmpl);
         s.cartContainer.html($tmpl);
     },
-
+    sendOrder: function(){
+        var checkoutData = JSON.parse(localStorage.simpleCart_items)
+        $.ajax({
+            url:'order.php',
+            type:'post',
+            data:{
+                name:$('#fullname').val(),
+                email:$('#email').val(),
+                phone:$('#phone').val(),
+                checkoutData:checkoutData
+            },
+            success:function(r){
+                console.log(r);
+            }
+        })
+    },
     generateStore: function () {
 
         var s = this.settings;
