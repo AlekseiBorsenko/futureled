@@ -10,7 +10,12 @@ $(function(){
     $('#finish_transf').on('click',function(){
         simpleStore.sendOrder();
     });
-    
+    $('#send_portes').on('change',function(){
+        var oldVal = parseFloat($('.transfer-amount').text());
+        console.log(oldVal)
+        var diff = $(this).is(':checked') ? 5 : oldVal >=5 ? -5 : 0;
+        $('.transfer-amount').text((oldVal+diff).toFixed(2));
+    });
     
   
     

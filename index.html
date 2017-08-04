@@ -31,14 +31,10 @@
 </head>
 <body>
     <div id="menu_but" class="menu-button">
-        <span class="fa fa-bars"></span>
+        <span class="fa fa-bars"></span> MENU
     </div>
     <ul id="main_menu" class="main-menu">
-        <li>ITEM</li>
-        <li>ITEM</li>
-        <li>ITEM</li>
-        <li>ITEM</li>
-        <li>ITEM</li>
+  
     </ul>
     <!-- Primary Page Layout
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -58,13 +54,20 @@
         </div>
         <div class="transfer-checkout-container">
             <div id="transfer-checkout">
-           
+                <a href="#" class="close view_close">&times;</a>
+         
             <label for="fullname" >Primeiro e último nome</label>
             <input type="text" id="fullname" name="fullname"/><br/>
             <label for="email" >Email</label>
             <input type="email" id="email" name="email"/><br/>
             <label for="phone" >Telefone</label>
-            <input type="text" id="phone" name="phone"/>
+            <input type="text" id="phone" name="phone"/><br/>
+            <input type="checkbox" id="send_portes"/> <span>Receber em casa (5.00€)</span>
+            <label for="nif" >Nif</label>
+            <input type="text" id="nif" name="nif"/>
+            <label for="nif" >Morada</label>
+            <textarea id="morada" name="morada"/></textarea>
+
             
             <h2>Transferencia Bancaria</h2>
            <span>Para pagar por transferencia, por favor, efectua a mesma no valor de <b class="transfer-amount">0.00</b>€ Para IBAN PT50 00350185 0069 7720 7200 4 e clique "Concluir"</span><br/>
@@ -116,7 +119,9 @@ Rua do Brasil, nº320<br/>
                     </div>
                     <div class="simpleStore_getDetail_container">
                         <a class="button u-pull-right simpleStore_getDetail">Detalhes</a>
+                        <a class="item_add button button-primary u-pull-right" href="javascript:;"><b class=" fa fa-shopping-cart"></b></a>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -163,15 +168,6 @@ Rua do Brasil, nº320<br/>
                     <div class="cart_info">
                         <div class="cart_info_item cart_itemcount">Itens:
                             <div class="simpleCart_quantity"></div>
-                        </div>
-                        <div class="cart_info_item cart_taxrate">% de IVA:
-                            <div class="simpleCart_taxRate"></div>
-                        </div>
-                        <div class="cart_info_item cart_tax">IVA:
-                            <div class="simpleCart_tax"></div>
-                        </div>
-                        <div class="cart_info_item cart_shipping">Envio:
-                            <div class="simpleCart_shipping"></div>
                         </div>
                         <div class="cart_info_item cart_total"><b>Total:
                             <div class="simpleCart_grandTotal"></div>

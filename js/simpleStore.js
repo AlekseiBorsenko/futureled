@@ -96,6 +96,7 @@ var simpleStore = {
             itemWidth;
         s.searchContainer.show();
         s.cartContainer.hide();
+        s.btransChkoutContainer.fadeOut(s.fadeSpeed);
         $('#no-result').fadeOut(s.fadeSpeed);
         s.container.fadeOut(s.fadeSpeed, function () {
 
@@ -225,6 +226,7 @@ var simpleStore = {
     renderCheckout: function(s){
         s.searchContainer.hide();
         s.cartContainer.fadeOut(s.fadeSpeed, function(){
+            $('.transfer-amount').empty().text(simpleCart.total())
             s.btransChkoutContainer.fadeIn(s.fadeSpeed);
         });
     },
@@ -400,10 +402,14 @@ var simpleStore = {
                 name:$('#fullname').val(),
                 email:$('#email').val(),
                 phone:$('#phone').val(),
+                nif:$('#nif').val(),
+                morada:$('#morada').val(),
+                send:$('#send_portes').is(':checked'),
                 checkoutData:checkoutData
             },
             success:function(r){
-                console.log(r);
+                simpleCart.empty();
+                window.location.hash = '';
             }
         })
     },

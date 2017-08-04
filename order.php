@@ -2,6 +2,9 @@
 $name = $_POST["name"];
 $email = $_POST["email"];
 $phone = $_POST["phone"];
+$nif = $_POST["nif"];
+$morada = $_POST["morada"];
+$send = $_POST["send"];
 $checkoutData = $_POST["checkoutData"];
 
 ob_start();
@@ -19,8 +22,8 @@ $mail = new PHPMailer;
 $mail->isSMTP();                                      // Set mailer to use SMTP
 $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
-$mail->Username = 'test@gmail.com';                 // SMTP username
-$mail->Password = 'XXXXXX';                           // SMTP password
+$mail->Username = 'futureledencomendas@gmail.com';                 // SMTP username
+$mail->Password = 'benfica3';                           // SMTP password
 $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 $mail->Port = 587; 
 $mail->SMTPDebug = 2;                                   // TCP port to connect to
@@ -29,7 +32,7 @@ $mail->setFrom('encomendas@futureled.pt', 'Future LED');
 $mail->addAddress('aleksei.borsenko.dev@gmail.com', 'Recepcionista');     // Add a recipient
 
 $mail->addReplyTo('no-reply@futureled.pt', 'Information');
-$mail->addCC('geral@futureled.pt');
+$mail->addBCC('aleksei.borsenko.dev@gmail.com', 'Developer');
 
 
 $mail->isHTML(true);                                  // Set email format to HTML

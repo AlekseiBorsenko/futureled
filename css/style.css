@@ -6,10 +6,11 @@
     margin:20px;
 }
 .menu-button{
-    position:absolute;
+    position:fixed;
     left:0;
     top:0;
     z-index:99;
+    color: #282828;
 }
 .menu-button span{
     font-size:40px;
@@ -19,18 +20,20 @@
 .menu-button span:hover{
     color:#333333;
 }
-.menu-button.opened span{
+.menu-button.opened, .menu-button.opened span{
     color:white;
 }
 .main-menu{
     background: #282828;
     padding-top:60px;
     font-weight: bold;
-    position: absolute;
+    position: fixed;
     z-index:98;
-    width:200px;
+    width:174px;
+    height:100vh;
+    overflow-y:auto;
     top:0;
-    left:-200px;
+    left:-174px;
     transition: left 0.2s ease-in;
     color:white;
 }
@@ -44,9 +47,17 @@
 .main-menu.opened{
     left:0;
 }
-
+@media (min-width: 1306px){
+    .main-menu{
+        left:0;
+    }
+    .menu-button, .menu-button span, .menu-button span:hover{
+        color:white;
+    }
+} 
 #main_menu > li > ul, #main_menu > li > ul > li > ul{
-    display: none
+    display: none;
+    margin: 1.5rem 0 1.5rem 1rem;
 }
 
 #main_menu > li.opened > ul, #main_menu > li > ul > li.opened > ul{
@@ -97,12 +108,15 @@ width:250px;
     border-color: #22B24C;
 
 }
-.button.button-primary:hover, button.button-primary:hover, input.button-primary[type="submit"]:hover, input.button-primary[type="reset"]:hover, input.button-primary[type="button"]:hover {
+.button.button-primary:hover, button.button-primary:hover, .button.button-primary:focus, input.button-primary[type="submit"]:hover, input.button-primary[type="reset"]:hover, input.button-primary[type="button"]:hover {
 
     color: #FFF;
     background-color: #03A94D;
     border-color: #03A94D;
 
+}
+.button.button-primary:focus{
+    background-color: #22B24C;
 }
 .searchbar input{
     width: 50%;
@@ -127,4 +141,7 @@ transition: width 0.1S;
     display:none;
     text-align: center;
     padding:20px;
+}
+.transfer-checkout-container > div{
+        position: relative;
 }
