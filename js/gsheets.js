@@ -202,7 +202,11 @@ simpleStore.plugins.google = (function() {
 						$('#main_menu').append(li);
 						
 					})
-					
+					$('#menu_but').on('click',function(){
+						$(this).toggleClass('opened')
+
+						$('#main_menu').toggleClass('opened')
+					})
 					$('#main_menu li, #main_menu ul li').on('click',function(e){
 						e.stopPropagation();
 						var cat = $(this).find('> span').text();

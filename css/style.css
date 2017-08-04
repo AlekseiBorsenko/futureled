@@ -11,17 +11,24 @@
     top:0;
     z-index:99;
     color: #282828;
+    font-size: 21px;
+    font-weight: bold;
+    width:154px;
 }
 .menu-button span{
     font-size:40px;
     padding:10px;
     cursor: pointer;
 }
+*:focus {
+    outline: none;
+}
 .menu-button span:hover{
     color:#333333;
 }
 .menu-button.opened, .menu-button.opened span{
     color:white;
+        background: #282828;
 }
 .main-menu{
     background: #282828;
@@ -59,6 +66,7 @@
     }
     .menu-button, .menu-button span, .menu-button span:hover{
         color:white;
+        background: #282828;
     }
 } 
 #main_menu > li > ul, #main_menu > li > ul > li > ul{
@@ -150,4 +158,8 @@ transition: width 0.1S;
 }
 .transfer-checkout-container > div{
         position: relative;
+}
+
+.simpleStore_detailView .item_price {
+    display: inline-block;
 }

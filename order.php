@@ -23,13 +23,12 @@ $mail->isSMTP();                                      // Set mailer to use SMTP
 $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
 $mail->Username = 'futureledencomendas@gmail.com';                 // SMTP username
-$mail->Password = 'xxxxxx';                           // SMTP password
+$mail->Password = 'xxxxx';                           // SMTP password
 $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-$mail->Port = 587; 
-$mail->SMTPDebug = 2;                                   // TCP port to connect to
+$mail->Port = 587;                                    // TCP port to connect to                                 
 
 $mail->setFrom('encomendas@futureled.pt', 'Future LED');
-$mail->addAddress('aleksei.borsenko.dev@gmail.com', 'Recepcionista');     // Add a recipient
+$mail->addAddress('encomendas@futureled.pt', 'Recepcionista');     // Add a recipient
 
 $mail->addReplyTo('no-reply@futureled.pt', 'Information');
 $mail->addBCC('aleksei.borsenko.dev@gmail.com', 'Developer');
