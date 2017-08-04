@@ -192,7 +192,7 @@ simpleStore.plugins.google = (function() {
 								var subcatElm = $('<li><span>'+subcatName+'</span></li>');
 								subsubcatNames.forEach(function(subsubcatName){
 									var subUl = $('<ul />');
-									subUl.append('<li>'+subsubcatName+'</li>')
+									subUl.append('<li><span>'+subsubcatName+'</span></li>')
 									subcatElm.append(subUl);
 								})
 								ul.append(subcatElm);
@@ -202,18 +202,14 @@ simpleStore.plugins.google = (function() {
 						$('#main_menu').append(li);
 						
 					})
-					$('#main_menu  li  span').on('click',function(){
-							$(this).parent().toggleClass('opened');
-							simpleStore.filterProductsCat($(this).text());
-					});
-					$('#main_menu ul li').on('click',function(){
-						simpleStore.filterProductsCat($(this).find('> span').text());
+					
+					$('#main_menu li, #main_menu ul li').on('click',function(e){
+						e.stopPropagation();
+						var cat = $(this).find('> span').text();
+						$(this).toggleClass('opened');
+						simpleStore.filterProductsCat(cat);
 					})
-					$('#menu_but span').on('click',function(){
-						$(this).parent().toggleClass('opened')
-						$('#main_menu').toggleClass('opened')
-						
-					});
+					
 					
 				})
 				.fail(function(data){

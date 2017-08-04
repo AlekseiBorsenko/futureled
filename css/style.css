@@ -47,6 +47,12 @@
 .main-menu.opened{
     left:0;
 }
+.transfer-checkout-container input, transfer-checkout-container textarea{
+    width:50%;
+}
+.transfer-checkout-container input[type="checkbox"]{
+    width:40px;
+}
 @media (min-width: 1306px){
     .main-menu{
         left:0;
