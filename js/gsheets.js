@@ -154,15 +154,21 @@ simpleStore.plugins.google = (function() {
 						var subcatName = this.gsx$subcat.$t;
 						var subsubcatName = this.gsx$subsubcat.$t;
 						
-
+						if(catName === "Tubos LED"){
+							console.log(subcatName);
+						}
 						if(catName in categories){
 							if(subcatName in categories[catName]){
-								categories[catName][subcatName].push(subsubcatName);
+								categories[catName][subcatName][subsubcatName] = subsubcatName;
 							}else{
-								categories[catName][subcatName] = []
+								categories[catName][subcatName] = {};
 							}
 						}else{
-							categories[catName] = []
+							categories[catName] = {}
+							categories[catName][subcatName] = {};
+							if(subsubcatName){
+								categories[catName][subcatName][subsubcatName] = subsubcatName;
+							}
 						}
 					});
 					console.log("cats loaded!")
@@ -175,22 +181,33 @@ simpleStore.plugins.google = (function() {
 						var li = $('<li><span>'+catName+'</span><a href="#" class="expand"><span class="glyphicon glyphicon-chevron-right"></span></a><a href="#" class="collapse"><span class="glyphicon glyphicon-chevron-down"></span></a></li>');
 						var subcats = cats[catName];
 						var subcatNames = Object.keys(subcats);
+						if(catName === "Tubos LED"){
+							console.log(subcats);
+						}
 						if(subcatNames.length > 0){
 							var ul = $('<ul />');
 							subcatNames.forEach(function(subcatName){
-								ul.append('<li>'+subcatName+'</li>');
+								var subsubCats = cats[catName][subcatName];
+								var subsubcatNames = Object.keys(subsubCats)
+								var subcatElm = $('<li><span>'+subcatName+'</span></li>');
+								subsubcatNames.forEach(function(subsubcatName){
+									var subUl = $('<ul />');
+									subUl.append('<li>'+subsubcatName+'</li>')
+									subcatElm.append(subUl);
+								})
+								ul.append(subcatElm);
 							});
 							li.append(ul)
 						}
 						$('#main_menu').append(li);
 						
 					})
-					$('#main_menu > li > span').on('click',function(){
+					$('#main_menu  li  span').on('click',function(){
 							$(this).parent().toggleClass('opened');
 							simpleStore.filterProductsCat($(this).text());
 					});
-					$('#main_menu > li > ul > li').on('click',function(){
-						simpleStore.filterProductsCat($(this).text());
+					$('#main_menu ul li').on('click',function(){
+						simpleStore.filterProductsCat($(this).find('> span').text());
 					})
 					$('#menu_but span').on('click',function(){
 						$(this).parent().toggleClass('opened')

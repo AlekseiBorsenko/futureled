@@ -25,6 +25,7 @@
 .main-menu{
     background: #282828;
     padding-top:60px;
+    font-weight: bold;
     position: absolute;
     z-index:98;
     width:200px;
@@ -44,10 +45,11 @@
     left:0;
 }
 
-#main_menu > li > ul{
+#main_menu > li > ul, #main_menu > li > ul > li > ul{
     display: none
 }
-#main_menu > li.opened > ul{
+
+#main_menu > li.opened > ul, #main_menu > li > ul > li.opened > ul{
     display:block;
 }
 
@@ -120,4 +122,9 @@ transition: width 0.1S;
 }
 .search-but:hover{
     color: #03A94D;
+}
+.no-result{
+    display:none;
+    text-align: center;
+    padding:20px;
 }

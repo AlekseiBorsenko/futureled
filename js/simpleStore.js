@@ -24,6 +24,7 @@ var simpleStore = {
         container: $('.simpleStore_container'),
         cartContainer: $('.simpleStore_cart_container'),
         btransChkoutContainer: $('.transfer-checkout-container'),
+        searchContainer: $('.searchbar'),
         rowClass: 'simpleStore_row_',
         columnWidthClasses: {
             1: "",
@@ -93,12 +94,17 @@ var simpleStore = {
             numProducts = products.length,
             numRows = Math.ceil(products.length / s.numColumns),
             itemWidth;
-
+        s.searchContainer.show();
         s.cartContainer.hide();
+        $('#no-result').fadeOut(s.fadeSpeed);
         s.container.fadeOut(s.fadeSpeed, function () {
 
             // Empty out main container on load
             s.container.html('').fadeIn(s.fadeSpeed);
+
+            if(numProducts == 0){
+                $('#no-result').fadeIn(s.fadeSpeed)
+            }
 
             // Build rows based on number of products
             for (var r = 0; r < numRows; r++) {
@@ -184,7 +190,7 @@ var simpleStore = {
     },
 
     renderSingleProduct: function (id, s) {
-
+        s.searchContainer.hide();
         s.container.fadeOut(s.fadeSpeed, function () {
 
             var tmpl = $('#product-detail-template').html(),
@@ -211,11 +217,13 @@ var simpleStore = {
     },
 
     renderCart: function (s) {
+        s.searchContainer.hide();
         s.container.fadeOut(s.fadeSpeed, function () {
             s.cartContainer.fadeIn(s.fadeSpeed);
         });
     },
     renderCheckout: function(s){
+        s.searchContainer.hide();
         s.cartContainer.fadeOut(s.fadeSpeed, function(){
             s.btransChkoutContainer.fadeIn(s.fadeSpeed);
         });
@@ -352,7 +360,9 @@ var simpleStore = {
     },
     filterProductsCat: function(cat ,s){
         var filtered = simpleStore.products.filter(function(prod){
-            return prod.category.indexOf(cat) !== -1;
+            var arr = prod.category.split(", ");
+            
+            return (cat == arr[0] || cat == arr[1] || cat == arr[2]);
         })
         simpleStore.renderProducts(filtered, this.settings);
     },

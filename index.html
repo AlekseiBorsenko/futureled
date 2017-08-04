@@ -53,6 +53,9 @@
         <div class="searchbar row">
             <a class="search-but fa fa-search"></a><input id="search_input" placeholder="Procure por nome, referencia, categoria, etc."/>
         </div>
+        <div id="no-result" class="no-result row">
+            Não existem produtos correspondentes a pesquisa
+        </div>
         <div class="transfer-checkout-container">
             <div id="transfer-checkout">
            
@@ -67,13 +70,6 @@
            <span>Para pagar por transferencia, por favor, efectua a mesma no valor de <b class="transfer-amount">0.00</b>€ Para IBAN PT50 00350185 0069 7720 7200 4 e clique "Concluir"</span><br/>
             <div class="row"><a href="javascript:;" id="finish_transf" class="button button-primary u-pull-right">Concluir <i class="fa fa-arrow-right"></i></a></div>
            
-           <h2>PayPal</h2>
-           <span>Clique "Pagar por PayPal"</span><br/>
-           <div class="row">
-            <a href="javascript:;" class="button button-primary simpleStore_checkout u-pull-right">Pagar por PayPal <i class="fa fa-arrow-right"></i></a>
-
-           </div>
-           
            
                         
         </div>
@@ -83,12 +79,13 @@
         <div class="simpleStore_cart_container"></div>
             <div class="footer row">
                 <div class="footer-options">
-                    <h3>MAIS OPÇÔES</h3>
+                    <h3>INFORMAÇÃO</h3>
                     <ul>
-                        <li>Item 1</li>
-                        <li>Item 2</li>
-                        <li>Item 3</li>
-                        <li>Item 4</li>
+                        <li>Termos e Condições</li>
+                        <li>Envio e Pagamentos</li>
+                        <li>Dicas sobre LED</li>
+                        <li>Domotica/Smart Home</li>
+                        <li>Sobre Nós</li>
                     </ul>
                 </div>
                 <div class="footer-contacts">
@@ -115,7 +112,7 @@ Rua do Brasil, nº320<br/>
                 <div class="row">
                     <h5 class="item_name"></h5>
                     <div class="simpleStore_getDetail_container">
-                        <span class="item_price"></span>
+                        <span class="item_price"></span>€
                     </div>
                     <div class="simpleStore_getDetail_container">
                         <a class="button u-pull-right simpleStore_getDetail">Detalhes</a>
