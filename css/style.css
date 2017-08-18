@@ -57,7 +57,7 @@
 .transfer-checkout-container input, transfer-checkout-container textarea{
     width:50%;
 }
-.transfer-checkout-container input[type="checkbox"]{
+.transfer-checkout-container input[type="radio"]{
     width:40px;
 }
 @media (min-width: 1306px){
@@ -162,4 +162,20 @@ transition: width 0.1S;
 
 .simpleStore_detailView .item_price {
     display: inline-block;
+}
+.admin-msg a, .admin-msg a:visited{
+    color:white;
+}
+.admin-msg{
+    width:960px;
+    left:50%;
+    margin-left: -465px;
+    text-align: center;
+    background: #03A94D;
+    color:white;
+    position: fixed;
+    bottom: 0;
+    padding:10px;
+    font-size:12px;
+    z-index:99999;
 }

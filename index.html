@@ -36,6 +36,7 @@
     <ul id="main_menu" class="main-menu">
   
     </ul>
+    <div class="admin-msg">Site em desenvolvimento. Em caso de dúvida, contacte nos atraves do telefone 239194357, email <a href="mailto:geral@futureled.pt">geral@futureled.pt</a> ou <a href="http://facebook.com/FutureLedPortugal">facebook.com/FutureLedPortugal</a>.<br/> Visite nos na nossa loja, na rua do Brasil, n 320. 3030-775 Coimbra."</div>
     <!-- Primary Page Layout
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <div class="container simpleStore">
@@ -48,6 +49,10 @@
         </div>
         <div class="searchbar row">
             <a class="search-but fa fa-search"></a><input id="search_input" placeholder="Procure por nome, referencia, categoria, etc."/>
+        </div>
+        <div class="row" style="background: #03A94D;color: white;text-align: center;">
+            <h2>15% de desconto</h2>
+            <p>Até 17 de Agosto 2017</p>
         </div>
         <div id="no-result" class="no-result row">
             Não existem produtos correspondentes a pesquisa
@@ -62,7 +67,8 @@
             <input type="email" id="email" name="email"/><br/>
             <label for="phone" >Telefone</label>
             <input type="text" id="phone" name="phone"/><br/>
-            <input type="checkbox" id="send_portes"/> <span>Receber em casa (5.00€)</span>
+            <input type="radio" checked class="radio-ship" name="shipping" value="0"/> <span>Levantar na loja em Coimbra (0.00€)</span><br/>
+            <input type="radio" class="radio-ship" name="shipping" value="5"/> <span>Receber em casa (5.00€)</span>
             <label for="nif" >Nif</label>
             <input type="text" id="nif" name="nif"/>
             <label for="nif" >Morada</label>
@@ -70,7 +76,8 @@
 
             
             <h2>Transferencia Bancaria</h2>
-           <span>Para pagar por transferencia, por favor, efectua a mesma no valor de <b class="transfer-amount">0.00</b>€ Para IBAN PT50 00350185 0069 7720 7200 4 e clique "Concluir"</span><br/>
+           <span>Para pagar por transferencia, por favor, efectua a mesma no valor de <b class="transfer-amount">0.00</b>€<br/>
+            Para IBAN PT50 00350185 0069 7720 7200 4 e clique "Concluir"</span><br/>
             <div class="row"><a href="javascript:;" id="finish_transf" class="button button-primary u-pull-right">Concluir <i class="fa fa-arrow-right"></i></a></div>
            
            

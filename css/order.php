@@ -1,4 +1,8 @@
 <?php
+
+error_reporting(E_ALL); 
+ini_set('display_errors', 1); 
+echo "test";
 $name = $_POST["name"];
 $email = $_POST["email"];
 $phone = $_POST["phone"];
@@ -14,11 +18,12 @@ $myvar = ob_get_clean();
 
 //print_r($myvar);
 
-require 'phpmailer/class.phpmailer.php';
+require_once('phpmailer/class.phpmailer.php');
+//include("phpmailer/class.smtp.php");
 
 $mail = new PHPMailer;
 
-//$mail->SMTPDebug = 3;                               // Enable verbose debug output
+$mail->SMTPDebug = 3;                               // Enable verbose debug output
 
 $mail->isSMTP();                                      // Set mailer to use SMTP
 $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers

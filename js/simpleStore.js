@@ -226,7 +226,7 @@ var simpleStore = {
     renderCheckout: function(s){
         s.searchContainer.hide();
         s.cartContainer.fadeOut(s.fadeSpeed, function(){
-            $('.transfer-amount').empty().text(simpleCart.total())
+            $('.transfer-amount').empty().text(simpleCart.total().toFixed(2))
             s.btransChkoutContainer.fadeIn(s.fadeSpeed);
         });
     },
@@ -404,7 +404,8 @@ var simpleStore = {
                 phone:$('#phone').val(),
                 nif:$('#nif').val(),
                 morada:$('#morada').val(),
-                send:$('#send_portes').is(':checked'),
+                send:$('input[name=shipping]').val(),
+                total:simpleCart.total(),
                 checkoutData:checkoutData
             },
             success:function(r){

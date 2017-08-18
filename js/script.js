@@ -11,11 +11,14 @@ $(function(){
         simpleStore.sendOrder();
     });
     $('#send_portes').on('change',function(){
-        var oldVal = parseFloat($('.transfer-amount').text());
-        console.log(oldVal)
-        var diff = $(this).is(':checked') ? 5 : oldVal >=5 ? -5 : 0;
-        $('.transfer-amount').text((oldVal+diff).toFixed(2));
+        
     });
+    $('input[name=shipping]').click('change',function(){
+        var val = parseFloat($('input[name=shipping]:checked').val());
+        var total = simpleCart.total();
+        $('.transfer-amount').empty().text((val+total).toFixed(2));
+
+    })
     
   
     
