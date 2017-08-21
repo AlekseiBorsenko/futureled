@@ -89,6 +89,7 @@
     border-top:1px solid #363636;
     margin-top:20px;
     padding-top:15px;
+    margin-bottom: 60px;
 }
 .footer div h3{
     font-size:20px;
@@ -179,3 +180,38 @@ transition: width 0.1S;
     font-size:12px;
     z-index:99999;
 }
+.simpleStore_getDetail_container .button{
+    padding:0 9px;
+}
+@media (max-width: 920px){
+    .simpleStore_getDetail_container {
+    width: 50%;
+}
+}
+
+
+@media (max-width: 920px){
+.simpleStore_getDetail {
+    position: inherit;
+    display: block;
+    width: 70%;
+    margin: 0;
+}
+}
+@media (max-width: 960px){
+.admin-msg {
+    width:100%;
+    margin:auto;
+    left:0;
+}
+}
+.main-menu li.opened > span{
+    background:#03A94D
+}
+.transfer-checkout-container input.zipcode{
+    width:70px;
+}
+.transfer-checkout-container input.zipcode2{
+    width:50px;
+}
+

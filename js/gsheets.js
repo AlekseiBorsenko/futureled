@@ -208,9 +208,10 @@ simpleStore.plugins.google = (function() {
 						$('#main_menu').toggleClass('opened')
 					})
 					$('#main_menu li, #main_menu ul li').on('click',function(e){
+						$(this).parent().find('li').removeClass('opened')
 						e.stopPropagation();
 						var cat = $(this).find('> span').text();
-						$(this).toggleClass('opened');
+						$(this).addClass('opened');
 						simpleStore.filterProductsCat(cat);
 					})
 					

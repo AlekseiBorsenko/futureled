@@ -3,6 +3,7 @@ $(function(){
     $('#search_input').on('keyup',function(){
         clearTimeout(timeout);
         timeout = setTimeout(function(){
+            $('#main_menu li').removeClass('opened');
             simpleStore.filterProducts($('#search_input').val().trim());
         },1500);
     })
@@ -19,6 +20,7 @@ $(function(){
         $('.transfer-amount').empty().text((val+total).toFixed(2));
 
     })
+    
     
   
     

@@ -154,6 +154,10 @@ var simpleStore = {
 					$('.' + s.rowClass + rowCount).append($tmpl);
 				}
             });
+            $('.simpleCart_shelfItem img').on('click',function(){
+                console.log('img clicked')
+                $(this).parent().find('.simpleStore_getDetail').trigger('click');
+            })
         });
     },
 
@@ -404,6 +408,7 @@ var simpleStore = {
                 phone:$('#phone').val(),
                 nif:$('#nif').val(),
                 morada:$('#morada').val(),
+                zipcode:$('.c_post_1').val() + " - " + $('.c_post_2').val(), 
                 send:$('input[name=shipping]').val(),
                 total:simpleCart.total(),
                 checkoutData:checkoutData
