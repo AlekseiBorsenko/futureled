@@ -183,13 +183,14 @@ transition: width 0.1S;
 .simpleStore_getDetail_container .button{
     padding:0 9px;
 }
+/*
 @media (max-width: 920px){
     .simpleStore_getDetail_container {
     width: 50%;
 }
-}
+}*/
 
-
+/*
 @media (max-width: 920px){
 .simpleStore_getDetail {
     position: inherit;
@@ -197,7 +198,7 @@ transition: width 0.1S;
     width: 70%;
     margin: 0;
 }
-}
+}*/
 @media (max-width: 960px){
 .admin-msg {
     width:100%;
@@ -214,4 +215,19 @@ transition: width 0.1S;
 .transfer-checkout-container input.zipcode2{
     width:50px;
 }
+
+@media (max-width: 920px){
+    .simpleStore_getDetail {
+    position: inherit;
+    display: block;
+    width: initial;
+    margin: 0;
+    
+}
+.brand{
+    margin-top: 50px;
+}
+
+}
+
 

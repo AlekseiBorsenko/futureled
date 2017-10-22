@@ -5,14 +5,14 @@
         "type": "chrome",
         "request": "launch",
         "name": "Launch Chrome",
-        "url": "http://localhost/futureled",
+        "url": "http://localhost",
         "webRoot": "${workspaceRoot}"
     },
         {
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "http://localhost/futureled",
+            "url": "http://localhost",
             "webRoot": "${workspaceRoot}"
         },
         {

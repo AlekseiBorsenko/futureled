@@ -154,19 +154,27 @@ simpleStore.plugins.google = (function() {
 						var subcatName = this.gsx$subcat.$t;
 						var subsubcatName = this.gsx$subsubcat.$t;
 						
-						if(catName === "Tubos LED"){
-							console.log(subcatName);
+						if(catName === "Lampadas LED" && subcatName == "E14 Casquilho fino" && subsubcatName == "Vela"){
+							console.log(subsubcatName);
 						}
 						if(catName in categories){
 							if(subcatName in categories[catName]){
 								categories[catName][subcatName][subsubcatName] = subsubcatName;
 							}else{
 								categories[catName][subcatName] = {};
+								if(subsubcatName){
+									
+									categories[catName][subcatName][subsubcatName] = subsubcatName;
+								}
 							}
 						}else{
 							categories[catName] = {}
 							categories[catName][subcatName] = {};
 							if(subsubcatName){
+								if(subsubcatName == 'Vela'){
+									console.log('Vela is loaded')
+								}
+								
 								categories[catName][subcatName][subsubcatName] = subsubcatName;
 							}
 						}
@@ -190,10 +198,12 @@ simpleStore.plugins.google = (function() {
 								var subsubCats = cats[catName][subcatName];
 								var subsubcatNames = Object.keys(subsubCats)
 								var subcatElm = $('<li><span>'+subcatName+'</span></li>');
+								var subUl = $('<ul />');
+								subcatElm.append(subUl);
 								subsubcatNames.forEach(function(subsubcatName){
-									var subUl = $('<ul />');
+									
 									subUl.append('<li><span>'+subsubcatName+'</span></li>')
-									subcatElm.append(subUl);
+									
 								})
 								ul.append(subcatElm);
 							});
@@ -208,7 +218,9 @@ simpleStore.plugins.google = (function() {
 						$('#main_menu').toggleClass('opened')
 					})
 					$('#main_menu li, #main_menu ul li').on('click',function(e){
-						$(this).parent().find('li').removeClass('opened')
+						$(this).parent().find('li').removeClass('opened');
+				
+						
 						e.stopPropagation();
 						var cat = $(this).find('> span').text();
 						$(this).addClass('opened');
