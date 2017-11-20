@@ -400,7 +400,7 @@ var simpleStore = {
     sendOrder: function(){
         var checkoutData = JSON.parse(localStorage.simpleCart_items)
         $.ajax({
-            url:'order.php',
+            url:'phpmailer/order.php',
             type:'post',
             data:{
                 name:$('#fullname').val(),
