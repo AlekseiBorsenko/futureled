@@ -225,6 +225,34 @@ simpleStore.plugins.google = (function() {
 						var cat = $(this).find('> span').text();
 						$(this).addClass('opened');
 						simpleStore.filterProductsCat(cat);
+					});
+					var menuCatalogos = $('<li ><span>Catálogos</span></li>');
+					$('#main_menu').append(menuCatalogos);
+					var catalogList = $('<ul></ul>');
+					menuCatalogos.append(catalogList)
+					catalogList.append('<li><a target="_blank" href="/catalog/Aslo_Completo.pdf">Aslo Completo</a></li>');
+					catalogList.append('<li><a target="_blank" href="/catalog/Begolux_Completo.pdf">Begolux Completo</a></li>');
+					catalogList.append('<li><a target="_blank" href="/catalog/Climar_Essence.pdf">Climar Essence</a></li>');
+					catalogList.append('<li><a target="_blank" href="/catalog/Climar_Innovare%20II.pdf">Climar Innovare%20II</a></li>');
+					catalogList.append('<li><a target="_blank" href="/catalog/Climar_Innovare.pdf">Climar Innovare</a></li>');
+					catalogList.append('<li><a target="_blank" href="/catalog/Dopo_Completo.pdf">Dopo Completo</a></li>');
+					catalogList.append('<li><a target="_blank" href="/catalog/Efapel_AnimatoLogus90.pdf">Efapel AnimatoLogus90</a></li>');
+					catalogList.append('<li><a target="_blank" href="/catalog/Eglo_Batholino.pdf">Eglo Batholino</a></li>');
+					catalogList.append('<li><a target="_blank" href="/catalog/Eglo_IndoorCompleto.pdf">Eglo IndoorCompleto</a></li>');
+					catalogList.append('<li><a target="_blank" href="/catalog/Eglo_Outdoor.pdf">Eglo Outdoor</a></li>');
+					catalogList.append('<li><a target="_blank" href="/catalog/Eglo_Solar.pdf">Eglo Solar</a></li>');
+					catalogList.append('<li><a target="_blank" href="/catalog/Eglo_TopLine.pdf">Eglo TopLine</a></li>');
+					catalogList.append('<li><a target="_blank" href="/catalog/Eglo_Vintage.pdf">Eglo Vintage</a></li>');
+					catalogList.append('<li><a target="_blank" href="/catalog/Exo_Completo.pdf">Exo Completo</a></li>');
+					catalogList.append('<li><a target="_blank" href="/catalog/Exporlux_Completo.pdf">Exporlux Completo</a></li>');
+					catalogList.append('<li><a target="_blank" href="/catalog/Exporlux_OrientationLighting.pdf">Exporlux OrientationLighting</a></li>');
+					catalogList.append('<li><a target="_blank" href="/catalog/FaroBarcelona_Indoor.pdf">FaroBarcelona Indoor</a></li>');
+					catalogList.append('<li><a target="_blank" href="/catalog/FaroBarcelona_Outdoor.pdf">FaroBarcelona Outdoor</a></li>');
+					catalogList.append('<li><a target="_blank" href="/catalog/Roblan_Completo.pdf">Roblan Completo</a></li>');
+
+					
+					menuCatalogos.find('> span').on('click',function(){
+						$(this).parent().toggleClass('opened')
 					})
 					
 					
